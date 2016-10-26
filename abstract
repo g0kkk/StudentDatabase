@@ -1,0 +1,36 @@
+classes:
+	exam
+	user inherits exam (abstract class)
+	faculty inherits user
+	student inherits user
+	interface login
+	
+user:	*inherits exam
+	*uses login interface
+	*members:
+		Name, ID, Department
+faculty:
+	*inherited from user
+	*members:
+		 Course
+	*methods:
+		setQuestion();
+		setAnswer();
+		evaluate();
+student:
+	*inherited from user
+	*members:
+		Date of birth, marks	
+	*methods:
+		takeExam();
+		viewResult();
+login:
+	*verifies credentials stored in file.
+	
+exam:
+	*members:
+		Duration, Marks
+		Maps for answer keys and for student to attempt.
+	*methods:
+		startTimer();
+		calcMarks();
