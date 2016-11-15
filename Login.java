@@ -13,11 +13,11 @@ public interface Login{
     		passwd = inp.readline();
     		FileInputStream f = new FileInputStream("creds.txt");
     		String input = f.readline()
-    		for(String val: input.split(" ")){
-      			if(uname.equals(val)){
+		while(!input.equals("")){
+      			if(uname.equals(input.split(" ")[0])){
           			if(passwd.equals(input.split(" ")[1])){
-            				auth=True;
-					break;
+					System.out.println("Login successful!");
+					return true;
           			}
           			else{
             				System.out.println("Invalid Credentials");
@@ -26,12 +26,7 @@ public interface Login{
       			}
       			input = f.readline();
     		}
-    		if(auth == True){
-        		System.out.println("Login successful");
-    		}
-    		else{
-      			System.out.println("No such username");
-    		}
-		return auth;
+		System.out.println("Username not found");
+		return false;
   	}
 }
