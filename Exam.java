@@ -1,38 +1,47 @@
 import java.util.*;
 import java.io.*;
-package exam;
+import java.lang.*;
+package Exam;
 
 class Exam{
 	int duration, totalmarks;
-  	HashMap choices;
-  	public exam(int d, int tot){
+	boolean tofinish;
+  	HashMap<String,String> choices;
+  	public Exam(int d, int tot){
     		duration = d;
     		totalmarks = tot;
-		choices = new HashMap();
+		choices = new HashMap<String,String>();
+		tofinish = false;
   	}
-  	public void takeExam(){
-    		FileInputStream q = new FileInputStream("questions.txt");
-    		String val = q.readline().split(" ")[0];
+  	public void takeExam() throws IOException,FileNotFoundException{
+    		BufferedReader q = new BufferedReader(new InputStreamReader(new FileInputStream("questions.txt")));
+    		String val = q.readLine().split(" ")[0];
+		long startTime = System.nanoTime();
     		while(!val.equals("")){
-      			BufferedInputReader in = new BufferedInputReader (new InputStreamReader(System.in));
+      			BufferedReader in = new BufferedReader (new InputStreamReader(System.in));
       			System.out.println(val);
-      			choices.put(val,in.readline());
-      			val = q.readline();
+      			choices.put(val,in.readLine());
+			tofinish = (System.nanoTime() - startTime >= duration);
+			if(tofinish){
+				System.out.println("Time's up!");
+				return;
+			}
+      			val = q.readLine();
     		}
   	}
-  	public int calMarks(){
+  	public int calMarks() throws IOException,FileNotFoundException{
 		int sum = 0;
 		String answer;
-    		FileInputStream q = new FileInputStream("questions.txt");
+    		BufferedReader q = new BufferedReader(new InputStreamReader(new FileInputStream("questions.txt")));
 		Set set = choices.entrySet();
 		Iterator i = set.iterator();
 		while(i.hasNext()){
-			answer = q.readline().split(" ")[1]
+			answer = q.readLine().split(" ")[1];
 			Map.Entry x = (Map.Entry)i.next();
 			if(x.getValue().equals(answer)){
-				sum+ = 1;
+				sum = sum + 1;
 			}
 		}
-  		return sum
+  		return sum;
 	}
 }

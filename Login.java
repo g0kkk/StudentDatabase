@@ -32,5 +32,6 @@ public interface Login{
     		else{
       			System.out.println("No such username");
     		}
+		return auth;
   	}
 }

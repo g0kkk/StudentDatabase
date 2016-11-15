@@ -9,6 +9,7 @@ user:	*inherits exam
 	*uses login interface
 	*members:
 		Name, ID, Department
+							//Done
 faculty:
 	*inherited from user
 	*members:
@@ -26,7 +27,7 @@ student:
 		viewResult();
 login:
 	*verifies credentials stored in file.
-	
+							//Done
 exam:
 	*members:
 		Duration, Marks
@@ -34,3 +35,4 @@ exam:
 	*methods:
 		startTimer();
 		calcMarks();
+							//Done
