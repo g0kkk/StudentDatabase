@@ -59,8 +59,16 @@ public class Faculty implements Login extends User{
                 }
                 if(val.equals("")){
                         System.out.println("Question does not exist\nAdd question first\n");
-                        return;
+                       return;
                 }
+		System.out.println("Enter new question");
+		String newquestion = br.readLine();
+		System.out.println("Enter new options");
+		String[] options;
+		for(int i = 0; i < 4; i++){
+			System.out.println("Option "+i);
+			options[i] = br.readLine();
+		}
 		
 	}	
 	public void runner() throws IOException{
