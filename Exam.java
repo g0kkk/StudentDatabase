@@ -12,7 +12,7 @@ class Exam{
   	}
   	public void takeExam(){
     		FileInputStream q = new FileInputStream("questions.txt");
-    		String val = q.readline();
+    		String val = q.readline().split(" ")[0];
     		while(!val.equals("")){
       			BufferedInputReader in = new BufferedInputReader (new InputStreamReader(System.in));
       			System.out.println(val);
@@ -21,12 +21,18 @@ class Exam{
     		}
   	}
   	public int calMarks(){
-    		FileInputStream q = new FileInputStream("key.txt");
+		int sum = 0;
+		String answer;
+    		FileInputStream q = new FileInputStream("questions.txt");
 		Set set = choices.entrySet();
 		Iterator i = set.iterator();
 		while(i.hasNext()){
+			answer = q.readline().split(" ")[1]
 			Map.Entry x = (Map.Entry)i.next();
-			
+			if(x.getValue().equals(answer)){
+				sum+ = 1;
+			}
 		}
-  	}
+  		return sum
+	}
 }
