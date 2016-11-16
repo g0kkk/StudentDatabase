@@ -37,7 +37,7 @@ class Exam{
   	public int calMarks() throws IOException,FileNotFoundException{
 		int sum = 0;
 		String answer;
-    		BufferedReader q = new BufferedReader(new InputStreamReader(new FileInputStream("questions.txt")));
+    BufferedReader q = new BufferedReader(new InputStreamReader(new FileInputStream("questions.txt")));
 		Set set = choices.entrySet();
 		Iterator i = set.iterator();
 		while(i.hasNext()){
