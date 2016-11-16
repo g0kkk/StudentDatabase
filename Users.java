@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.*;
 
-public abstract class Users{
+public class Users implements Login{
   protected String name;
   protected String password;
 }

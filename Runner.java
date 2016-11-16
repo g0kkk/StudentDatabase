@@ -10,7 +10,7 @@ class Runner {
 	public static void main(String[] args) throws IOException,FileNotFoundException{
 		File f = new File("questions.txt");
 		File q = new File("creds.txt");
-		if(f.exists() && !f.isDirectory() && q.exists() && !q.isDirectory()) { 
+		if(f.exists() && !f.isDirectory() && q.exists() && !q.isDirectory()) {
 			System.out.println("Could not find required files\nExiting...\n");
 			System.exit();
 		}
@@ -19,7 +19,7 @@ class Runner {
 		int choice = br.read();
 		while(choice != 3){
 			switch(choice){
-				case 1: System.out.println("Enter login credentials:\nName:");
+				case 1: System.out.println("Enter details:\nName:");
 					String name = br.readLine();
 					System.out.println("Department");
 					String dept = br.readLine();
@@ -31,7 +31,7 @@ class Runner {
 					}
 					s.runner();
 					break;
-				case 2: System.out.println("Enter login credentials:\nName:");
+				case 2: System.out.println("Enter details:\nName:");
 					String name = br.readLine();
 					System.out.println("Department:")
 					String dept = br.readLine();
